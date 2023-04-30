@@ -9,12 +9,12 @@ from json     import loads
 import os
 
 from server.config import special_instructions
-
+from settings import OPENAI_API_KEY  # Add this line
 
 class Backend_Api:
     def __init__(self, app, config: dict) -> None:
         self.app = app
-        self.openai_key = os.getenv("OPENAI_API_KEY") or config['openai_key']
+        self.openai_key = os.getenv("OPENAI_API_KEY") or OPENAI_API_KEY  # Remove the `or config['openai_key']` part
         self.openai_api_base = os.getenv("OPENAI_API_BASE") or config['openai_api_base']
         self.proxy = config['proxy']
         self.routes = {

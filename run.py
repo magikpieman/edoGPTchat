@@ -1,8 +1,11 @@
 from server.app     import app
 from server.website import Website
 from server.backend import Backend_Api
-
+from dotenv import load_dotenv
+from settings import OPENAI_API_KEY  # Add this line
 from json import load
+
+load_dotenv()
 
 if __name__ == '__main__':
     config = load(open('config.json', 'r'))
